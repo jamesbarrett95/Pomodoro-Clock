@@ -10,9 +10,20 @@ html, body {
 .options {
   display: flex;
   flex-direction: row;
+  -webkit-transition: visibility 1s, opacity 1s linear;
+  -moz-transition: visibility 1s, opacity 1s linear;
+  -ms-transition: visibility 1s, opacity 1s linear;
+  -o-transition: visibility 1s, opacity 1s linear;
 }
 
-.toggler {
+.options.hide {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.toggleSession,
+.toggleBreak {
   cursor: pointer;
 }
 
@@ -40,6 +51,15 @@ html, body {
   background: lightblue;
   margin-top: 20px;
   margin-bottom: 20px;
+  transform: scale(0.97);
+  -webkit-transition: transform 1.05s ease-in-out;
+  -moz-transition:transform 1.05s ease-in-out;
+  -ms-transition:transform 1.05s ease-in-out;
+  -o-transition:transform 1.05s ease-in-out;
+}
+
+.timer.counting {
+  transform: scale(1);
 }
 
 .time {
