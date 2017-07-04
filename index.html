@@ -1,13 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Pomodoro Clock</title>
-    <link rel="stylesheet" type="text/css" href="css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-  </head>
-  <body>
-    <h1>Hello World</h1>
-    <script type="text/javascript" src="script.js"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Pomodoro Clock</title>
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body>
+  <div class="options">
+    <div class="break--length">
+      <p>Break length</p>
+      <span class="toggler">-</span>
+      <span>5</span>
+      <span class="toggler">+</span>
+    </div>
+    <div class="session--length">
+      <p>Session length</p>
+      <span class="toggler">-</span>
+      <span>5</span>
+      <span class="toggler">+</span>
+    </div>
+  </div>
+  <div class="timer">
+    <span class="time">25:00</span>
+  </div>
+  <div class="buttons">
+    <button type="button" id="start">Start</button>
+    <button type="button" id="pause">Pause</button>
+    <button type="button" id="reset">Reset</button>
+  </div>
+  <script type="text/javascript" src="script.js"></script>
+</body>
+
 </html>

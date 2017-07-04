@@ -1,1 +1,47 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
+.options {
+  display: flex;
+  flex-direction: row;
+}
+
+.toggler {
+  cursor: pointer;
+}
+
+.break--length,
+.session--length {
+  text-align: center;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 25px;
+}
+
+.break--length > *,
+.session--length > * {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  width: 400px;
+  border-radius: 50px;
+  background: lightblue;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.time {
+  font-size: 50px;
+}
