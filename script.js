@@ -6,6 +6,7 @@ const stopButton = document.getElementById('pause')
 const resetButton = document.getElementById('reset')
 const toggleSession = document.querySelectorAll('.toggleSession')
 const toggleBreak = document.querySelectorAll('.toggleBreak')
+const alarm = document.querySelector('audio')
 
 let breakLengthCounter = document.querySelectorAll('.break--length span')[1]
 let sessionLengthCounter = document.querySelectorAll('.session--length span')[1]
@@ -25,8 +26,11 @@ function timer (seconds) {
     if (!isPaused) {
       secondsLeft = Math.round((then - Date.now()) / 1000)
       if (secondsLeft < 0) {
+        alarm.volume = 0.5
+        alarm.play()
         if (!onBreak) {
           onBreak = true
+          timeContainer.firstElementChild.textContent = 'Break'
           clearInterval(countdown)
           timer(breakLengthCounter.textContent * 60)
           return
@@ -34,6 +38,7 @@ function timer (seconds) {
         clearInterval(countdown)
         resetButton.click()
         onBreak = false
+        timeContainer.firstElementChild.textContent = 'Session'
         return
       }
       displayTimeLeft(secondsLeft)
@@ -78,6 +83,7 @@ function resetTimer () {
   timeContainer.classList.remove('counting')
   optionsContainer.classList.remove('hide')
   document.title = 'Pomodoro Clock'
+  timeContainer.firstElementChild.textContent = 'Session'
 }
 
 function stopTimer () {

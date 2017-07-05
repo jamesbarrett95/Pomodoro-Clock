@@ -43,10 +43,12 @@ html, body {
 
 .timer {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 300px;
-  width: 400px;
+  height: 30%;
+  width: 100%;
+  max-width: 408px;
   border-radius: 50px;
   background: lightblue;
   margin-top: 20px;
@@ -56,6 +58,10 @@ html, body {
   -moz-transition:transform 1.05s ease-in-out;
   -ms-transition:transform 1.05s ease-in-out;
   -o-transition:transform 1.05s ease-in-out;
+}
+
+.timer > p {
+  margin: 0
 }
 
 .timer.counting {
