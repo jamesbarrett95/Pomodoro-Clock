@@ -13,6 +13,7 @@ let countdown // Countdown interval
 let isPaused = false // Countdown state
 let lastEnteredTime
 let secondsLeft
+let onBreak = false
 
 // Timer function taken from Wes Bos' JavaScript 30 Series
 function timer (seconds) {
@@ -24,7 +25,15 @@ function timer (seconds) {
     if (!isPaused) {
       secondsLeft = Math.round((then - Date.now()) / 1000)
       if (secondsLeft < 0) {
+        if (!onBreak) {
+          onBreak = true
+          clearInterval(countdown)
+          timer(breakLengthCounter.textContent * 60)
+          return
+        }
         clearInterval(countdown)
+        resetButton.click()
+        onBreak = false
         return
       }
       displayTimeLeft(secondsLeft)
@@ -68,6 +77,7 @@ function resetTimer () {
   isPaused = false
   timeContainer.classList.remove('counting')
   optionsContainer.classList.remove('hide')
+  document.title = 'Pomodoro Clock'
 }
 
 function stopTimer () {
